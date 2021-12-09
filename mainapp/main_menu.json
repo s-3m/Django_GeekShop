@@ -1,0 +1,16 @@
+{
+    "menu_links": [
+        {
+            "href": "main",
+            "name": "Главная"
+        },
+        {
+            "href": "products",
+            "name": "Продукты"
+        },
+        {
+            "href": "contact",
+            "name": "Контакты"
+        }
+    ]
+}
