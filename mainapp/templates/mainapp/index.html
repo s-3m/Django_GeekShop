@@ -28,18 +28,24 @@
 			<div class="clearfix">
 			</div>
 			<div class="tab-content">
-				{% for prod in products %}
 				<div class="block">
-					<a href="#"><img src="/media/{{prod.image}}" width=280px height=280px alt="{{prod.short_dec}}" >
+					<a href="#"><img src="{% static 'img/product-1.jpg' %}" alt="">
 						<div class="text">
 							<img src="{% static 'img/icon-hover.png' %}" alt="img">
-							<h3>{{prod.category.name}}</h3>
-							<h4>{{prod.name}}</h4>
-							<p>{{prod.description}}</p>
+							<h4>Отличный стул</h4>
+							<p>Расположитесь комфортно. </p>
 						</div> 
 					</a>
 				</div>
-				{% endfor %}
+				<div class="block">
+					<a href="#"><img src="{% static 'img/product-2.jpg' %}" alt="">
+						<div class="text">
+							<img src="{% static 'img/icon-hover.png' %}" alt="">
+							<h4>Стул повышенного качества</h4>
+							<p>Не оторваться. </p>
+						</div>
+					</a>
+				</div>	
 			</div>
 		</div>
 		
