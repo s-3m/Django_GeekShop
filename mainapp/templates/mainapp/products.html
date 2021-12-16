@@ -64,15 +64,16 @@
 				<div class="related-products clearfix">
 					{% for product in related_products %}
 					<div class="block">
-						<a href="#"><img src="/media/{{product.image}}" width=370px height=370px alt="">
+						<a href="#"><img src="{% static product.product_img %}" alt="">
 							<div class="text">
 								<img src="{% static 'img/icon-hover.png' %}" alt="img">
 								<h4>{{product.name}}</h4>
-								<p>{{product.short_dec}}.</p>
+								<p>{{product.description}}. </p>
 							</div>
 						</a>
 					</div>
 					{% endfor %}
+					
 				</div>
 			</div>
 		</div>
