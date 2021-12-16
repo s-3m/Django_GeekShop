@@ -5,10 +5,14 @@ from .models import Product, ProductCategory
 # Create your views here.
 
 
-with open('mainapp/main_menu.json', 'r', encoding='utf-8') as menu_file:
-    main_menu_links_dict = json.load(menu_file)
-main_menu_links = [i for i in main_menu_links_dict['menu_links']]
-
+# with open('mainapp/main_menu.json', 'r', encoding='utf-8') as menu_file:
+#     main_menu_links_dict = json.load(menu_file)
+# main_menu_links = [i for i in main_menu_links_dict['menu_links']]
+main_menu_links = [
+    {"href": "main", "name": "Главная"},
+    {"href": "products:index", "name": "Продукты"},
+    {"href": "contact", "name": "Контакты"},
+]
 
 def all_prod():
     all_products = Product.objects.all()
@@ -24,7 +28,7 @@ def index(request):
 
 
 def products(request, pk=None):
-    related_products = all_prod if not pk else Product.objects.filter(
+    related_products = all_prod()[:3] if not pk else Product.objects.filter(
         category__id=pk)
     prod_menu_links = ProductCategory.objects.all()
     print(pk)

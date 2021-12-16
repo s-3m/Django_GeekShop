@@ -1,49 +1,49 @@
 {% extends 'mainapp/base.html'%}
 {% load static %}
-	{% block title %}Магазин{% endblock%}
-		{% block content %}
-		<div class="slider">
+{% block title %}Магазин{% endblock%}
+    {% block content %}
+    <div class="slider">
 
-			<div class="header clearfix">
-				{% include 'mainapp/includes/inc_main_menu.html' %}
+        <div class="header clearfix">
+            {% include 'mainapp/includes/inc_main_menu.html' %}
 
-			</div>
-			<div class="text-slider">
-				<h3 class="green">тенденции</h3>
-				<h3 class="big"> удобные стулья</h3>
-				<p>Новый уровень комфорта. Отличные характеристики.</p>
-				<a href="#" class="button-order">заказать <img src="{% static 'img/arrow.png' %}" alt=""></a>
-			</div>	
-			<div class="navi">
-				<a href="#"></a><a href="#"></a><a href="#"></a>
-			</div>
-		</div>
+        </div>
+        <div class="text-slider">
+            <h3 class="green">тенденции</h3>
+            <h3 class="big"> удобные стулья</h3>
+            <p>Новый уровень комфорта. Отличные характеристики.</p>
+            <a href="#" class="button-order">заказать <img src="{% static 'img/arrow.png' %}" alt=""></a>
+        </div>
+        <div class="navi">
+            <a href="#"></a><a href="#"></a><a href="#"></a>
+        </div>
+    </div>
 
 
-		<div class="featured">
-			<div class="featured-menu">
-					<a class="active" href="#">Популярные</a><a href="#">Новинки</a>
-			</div>
-			<a class="explore" href="#">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
-			<div class="clearfix">
-			</div>
-			<div class="tab-content">
-				{% for prod in products %}
-				<div class="block">
-					<a href="#"><img src="/media/{{prod.image}}" width=280px height=280px alt="{{prod.short_dec}}" >
-						<div class="text">
-							<img src="{% static 'img/icon-hover.png' %}" alt="img">
-							<h3>{{prod.category.name}}</h3>
-							<h4>{{prod.name}}</h4>
-							<p>{{prod.description}}</p>
-						</div> 
-					</a>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-		
-		<div class="clr"></div>
+    <div class="featured">
+        <div class="featured-menu">
+                <a class="active" href="#">Популярные</a><a href="#">Новинки</a>
+        </div>
+        <a class="explore" href="#">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
+        <div class="clearfix">
+        </div>
+        <div class="tab-content">
+            {% for prod in products %}
+            <div class="block">
+                <a href="#"><img src="/media/{{prod.image}}" width=280px height=280px alt="{{prod.short_dec}}" >
+                    <div class="text">
+                        <img src="{% static 'img/icon-hover.png' %}" alt="img">
+                        <h3>{{prod.category.name}}</h3>
+                        <h4>{{prod.name}}</h4>
+                        <p>{{prod.description}}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
-	</div>
-	{% endblock %}
+    <div class="clr"></div>
+
+
+{% endblock %}
