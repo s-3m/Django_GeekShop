@@ -16,7 +16,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (Django_GeekShop)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">
@@ -28,6 +28,8 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/mainapp/templates" />
+        <option value="$MODULE_DIR$/mainapp/templates/mainapp" />
+        <option value="$MODULE_DIR$/mainapp/templates/mainapp/includes" />
       </list>
     </option>
   </component>
