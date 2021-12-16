@@ -1,7 +1,3 @@
-from django.conf import settings
-from django.conf.urls.static import static
-from django.conf.urls import include
-
 """geekshop URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -22,11 +18,7 @@ from django.urls import path
 from mainapp import views as mainapp_views
 urlpatterns = [
     path('', mainapp_views.index, name='main'),
-    path('products', include('mainapp.urls', namespace='products')),
+    path('products', mainapp_views.products, name='products'),
     path('contact', mainapp_views.contact, name='contact'),
     path('admin/', admin.site.urls),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)

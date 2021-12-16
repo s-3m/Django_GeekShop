@@ -1,8 +1,8 @@
-from random import shuffle
+
 from django.shortcuts import render
 import json
-from .models import Product, ProductCategory
 # Create your views here.
+
 
 
 # with open('mainapp/main_menu.json', 'r', encoding='utf-8') as menu_file:
@@ -23,8 +23,7 @@ def all_prod():
 
 def index(request):
 
-    return render(request, 'mainapp/index.html', context={'main_menu_links': main_menu_links,
-                                                          'products': all_prod()})
+    return render(request, 'mainapp/index.html', context={'main_menu_links': main_menu_links})
 
 
 def products(request, pk=None):
