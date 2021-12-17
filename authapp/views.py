@@ -21,3 +21,8 @@ def login(request):
         content = {'title': title, 'login_form': login_form}
         return render(request, 'authapp/login.html', content)
 
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('main'))
+
