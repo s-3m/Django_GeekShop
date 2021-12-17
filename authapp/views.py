@@ -14,12 +14,12 @@ def login(request):
         password = request.POST['password']
 
         user = auth.authenticate(username=username, password=password)
-        if user and user.is_active():
+        if user and user.is_active:
             auth.login(request, user)
             return HttpResponseRedirect(reverse('main'))
 
-        content = {'title': title, 'login_form': login_form}
-        return render(request, 'authapp/login.html', content)
+    content = {'title': title, 'login_form': login_form}
+    return render(request, "authapp/login.html", content)
 
 
 def logout(request):
