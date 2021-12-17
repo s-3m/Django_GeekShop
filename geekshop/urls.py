@@ -20,11 +20,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mainapp import views as mainapp_views
+
 urlpatterns = [
     path('', mainapp_views.index, name='main'),
     path('products', include('mainapp.urls', namespace='products')),
     path('contact', mainapp_views.contact, name='contact'),
+    path('auth', include('authapp.urls', namespace='auth')),
     path('admin/', admin.site.urls),
+
 ]
 
 if settings.DEBUG:
