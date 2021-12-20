@@ -28,6 +28,10 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/mainapp/templates" />
+        <option value="$MODULE_DIR$/mainapp/templates/mainapp" />
+        <option value="$MODULE_DIR$/mainapp/templates/mainapp/includes" />
+        <option value="$MODULE_DIR$/authapp/templates" />
+        <option value="$MODULE_DIR$/authapp/templates/authapp" />
       </list>
     </option>
   </component>
