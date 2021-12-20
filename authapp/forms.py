@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from .models import ShopUser
+from django import forms
 
 
 class ShopUserLoginForm(AuthenticationForm):
@@ -16,7 +17,7 @@ class ShopUserLoginForm(AuthenticationForm):
 class ShopUserRegisterForm(UserCreationForm):
     class Meta:
         model = ShopUser
-        fields = ('username', 'first_name', 'password1', 'password2', 'email', 'age', 'avatar')
+        fields = ('username', 'first_name', 'password1', 'password2', 'email', 'age', 'avatar', 'city')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

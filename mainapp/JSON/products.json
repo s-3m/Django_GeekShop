@@ -1,0 +1,83 @@
+[
+  {
+    "category": "стулья",
+    "name": "Модный стул",
+    "price": 2550,
+    "short_dec": "Можно и посидеть",
+    "description": "И стул, а для кого-то еще и стол. Не так прост как кажется.",
+    "quantity": 20,
+    "image": "products_images/chair.jpg"
+  },
+  {
+    "category": "стулья",
+    "name": "Кухонный стул",
+    "price": 3550,
+    "short_dec": "Стул для кухни",
+    "description": "Обычный стул, не самый плохой вариант, кстати!",
+    "quantity": 20,
+    "image": "products_images/Kitchen_chair.jpg"
+  },
+   {
+    "category": "кресла",
+    "name": "Кресл-качалка",
+    "price": 5000,
+    "short_dec": "Покачайся пока молодой",
+    "description": "И вам и вашей бабушке подойдет",
+    "quantity": 10,
+    "image": "products_images/kreslo_kach.jpg"
+  },
+  {
+    "category": "кресла",
+    "name": "Мамасан",
+    "price": 20000,
+    "short_dec": "Как папасан, только больше и мама",
+    "description": "Вы и кто-то еще поместиться, разве вы этого не хотели?",
+    "quantity": 10,
+    "image": "products_images/mamasan.jpeg"
+  },
+  {
+    "category": "стулья",
+    "name": "Потрепанный стул",
+    "price": 1000,
+    "short_dec": "Старый стул",
+    "description": "Обвчный старый стул. Дешево и сердито",
+    "quantity": 10,
+    "image": "products_images/old.jpg"
+  },
+  {
+    "category": "кресла",
+    "name": "Папасан",
+    "price": 10000,
+    "short_dec": "Кресло-гнездо. В представении не нуждается",
+    "description": "Загнездись перед телеком. Ты же так давно этого хотел",
+    "quantity": 10,
+    "image": "products_images/papasan.jpg"
+  },
+  {
+    "category": "лампы",
+    "name": "Зебра",
+    "price": 5000,
+    "short_dec": "Она как зебра, только лампа",
+    "description": "Можно перепутать с полосатой лошадью, если вовремя не включить",
+    "quantity": 10,
+    "image": "products_images/product-11.jpg"
+  },
+  {
+    "category": "лампы",
+    "name": "Овал",
+    "price": 6000,
+    "short_dec": "Стильная овальная лампа",
+    "description": "Подойдет к любому интерьеру, особенно если у вас отсутствует вкус",
+    "quantity": 10,
+    "image": "products_images/product-1.jpg"
+  },
+  {
+    "category": "лампы",
+    "name": "Флойд",
+    "price": 3000,
+    "short_dec": "Бедный афроамериканец",
+    "description": "Полиции не продается. Black live matters!!!",
+    "quantity": 10,
+    "image": "products_images/product-41.jpg"
+  }
+]
