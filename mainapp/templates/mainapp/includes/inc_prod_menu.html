@@ -10,7 +10,7 @@
           </li>
 
         {% for link in prod_menu_links %}
-            <li><a href="{% url 'products:index' %}{{link.id}}"
+            <li><a href="{% url 'products:category' link.id %}"
                 class="{% if request.resolver_match.url_name == link.href %}active{% endif %}">
                 {{link.name}}
                 </a>

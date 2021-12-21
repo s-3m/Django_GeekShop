@@ -353,7 +353,7 @@ html, body {
 }
 .title h2 {
 	float: left;
-	margin-top: 118px;
+	margin-top: 20px;
 	color:  #212121;
 	font-size: 36px;
 	font-weight: 700;
@@ -1069,4 +1069,9 @@ td:first-child {
 }
 .related-products a:hover .text{
 	display: block;
+}
+
+.list_of_prod {
+	width: 300px;
+	height: 300px;
 }
