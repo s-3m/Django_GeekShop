@@ -1,5 +1,14 @@
 <div class="links clearfix">
     <ul class="links-menu">
+        <li>
+            <a href="{% url 'products:category' 0 %}"
+               class="{% if request.resolver_match.kwargs.pk == '0' %}
+                        active
+                      {% endif %}">
+              все
+            </a>
+          </li>
+
         {% for link in prod_menu_links %}
             <li><a href="{% url 'products:index' %}{{link.id}}"
                 class="{% if request.resolver_match.url_name == link.href %}active{% endif %}">
