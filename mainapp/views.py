@@ -1,7 +1,7 @@
 from random import shuffle
 from django.shortcuts import render, get_object_or_404
-import json
 from .models import Product, ProductCategory
+from basketapp.models import Basket
 
 # Create your views here.
 
@@ -48,6 +48,24 @@ def products(request, pk=None):
                                                                       'title': title,
                                                                       'category': category,
                                                                       'all_products': all_products})
+
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
+    if pk:
+        if pk == '0':
+            products = Product.objects.all().order_by('price')
+            category = {'name': 'все'}
+        else:
+            category = get_object_or_404(ProductCategory, pk=pk)
+            products = Product.objects.filter(category__pk=pk).order_by('price')
+
+        return render(request, 'mainapp/products_list.html', context={'title': title,
+                                                                      'links_menu': prod_menu_links,
+                                                                      'category': category,
+                                                                      'products': products,
+                                                                      'basket': basket})
 
     return render(request, 'mainapp/products.html', context={'main_menu_links': main_menu_links,
                                                              'prod_menu_links': prod_menu_links,
