@@ -28,7 +28,7 @@
     <a href="{% url 'basket:view' %}" class="basket"></a>
 </li>
 <li class="li_basket_count">
-   ({{ basket|length }})
+   {{ basket|length }} - ({{ total_cost }} руб.)
 </li>
 </ul>
 

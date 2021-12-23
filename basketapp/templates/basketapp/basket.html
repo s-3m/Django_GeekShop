@@ -1,2 +1,5 @@
-Это наша корзина
-{{ basket|length }}
+<div>Это наша корзина
+<p>{% for i in basket.product %}
+    {{ i.price }}
+{% endfor %}</p>
+</div>

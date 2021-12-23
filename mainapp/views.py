@@ -25,6 +25,7 @@ def all_prod():
 
 def index(request):
     basket = Basket.objects.filter(user=request.user)
+
     return render(request, 'mainapp/index.html', context={'main_menu_links': main_menu_links,
                                                           'products': all_prod(),
                                                           'basket': basket})
@@ -55,6 +56,8 @@ def products(request, pk=None):
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
 
+    total_cost = sum(i.product.price for i in basket)
+
     if pk:
         if pk == '0':
             products = Product.objects.all().order_by('price')
@@ -73,10 +76,12 @@ def products(request, pk=None):
                                                              'prod_menu_links': prod_menu_links,
                                                              'related_products': related_products,
                                                              'basket': basket,
+                                                             'total_cost': total_cost,
                                                              'title': title})
 
 
 def contact(request):
     basket = Basket.objects.filter(user=request.user)
+    a = b
     return render(request, 'mainapp/contact.html', context={'main_menu_links': main_menu_links,
                                                             'basket': basket})
