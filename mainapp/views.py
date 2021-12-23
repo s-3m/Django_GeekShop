@@ -24,8 +24,10 @@ def all_prod():
 
 
 def index(request):
+    basket = Basket.objects.filter(user=request.user)
     return render(request, 'mainapp/index.html', context={'main_menu_links': main_menu_links,
-                                                          'products': all_prod()})
+                                                          'products': all_prod(),
+                                                          'basket': basket})
 
 
 def products(request, pk=None):
@@ -70,8 +72,11 @@ def products(request, pk=None):
     return render(request, 'mainapp/products.html', context={'main_menu_links': main_menu_links,
                                                              'prod_menu_links': prod_menu_links,
                                                              'related_products': related_products,
+                                                             'basket': basket,
                                                              'title': title})
 
 
 def contact(request):
-    return render(request, 'mainapp/contact.html', context={'main_menu_links': main_menu_links})
+    basket = Basket.objects.filter(user=request.user)
+    return render(request, 'mainapp/contact.html', context={'main_menu_links': main_menu_links,
+                                                            'basket': basket})

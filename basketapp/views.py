@@ -1,10 +1,12 @@
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from basketapp.models import Basket
 from mainapp.models import Product
-
+import pdb
 
 def basket(request):
-    content = {}
+    basket = Basket.objects.filter(user=request.user)
+    # pdb.set_trace()
+    content = {'basket': basket}
     return render(request, 'basketapp/basket.html', content)
 
 

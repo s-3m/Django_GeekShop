@@ -32,6 +32,8 @@
         <option value="$MODULE_DIR$/mainapp/templates/mainapp/includes" />
         <option value="$MODULE_DIR$/authapp/templates" />
         <option value="$MODULE_DIR$/authapp/templates/authapp" />
+        <option value="$MODULE_DIR$/basketapp/templates" />
+        <option value="$MODULE_DIR$/basketapp/templates/basketapp" />
       </list>
     </option>
   </component>
