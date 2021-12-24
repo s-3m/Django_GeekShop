@@ -21,6 +21,15 @@
       <a href="{% url 'auth:login' %}">войти</a>
     {% endif %}
 </li>
+<li>
+   <a href="#" class="search"></a>
+</li>
+<li>
+    <a href="{% url 'basket:view' %}" class="basket"></a>
+</li>
+<li class="li_basket_count">
+   {{ basket|length }} - ({{ total_cost }} руб.)
+</li>
 </ul>
 
-<a href="#" class="search"></a>
+
