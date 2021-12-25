@@ -44,7 +44,9 @@ def get_same_products(hot_product):
 
 
 def index(request):
-    basket = Basket.objects.filter(user=request.user)
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
     total_cost = sum(i.product.price for i in basket)
 
     return render(request, 'mainapp/index.html', context={'main_menu_links': main_menu_links,
@@ -80,7 +82,7 @@ def products(request, pk=None):
                                                                       'category': category,
                                                                       'all_products': all_products,
                                                                       'total_cost': total_cost,
-                                                                      'basket': basket,})
+                                                                      'basket': basket, })
 
     if pk:
         if pk == '0':
@@ -117,7 +119,9 @@ def product(request, pk):
 
 
 def contact(request):
-    basket = Basket.objects.filter(user=request.user)
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
     total_cost = sum(i.product.price for i in basket)
     return render(request, 'mainapp/contact.html', context={'main_menu_links': main_menu_links,
                                                             'basket': basket,
