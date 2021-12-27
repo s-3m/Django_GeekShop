@@ -7,13 +7,22 @@
             </a>
         </li> 
         {% endfor %}
-    {% if user.is_authenticated %}
-<li>
-    <a href="{% url 'auth:edit' %}">
-        {{ user.first_name|default:'Пользователь' }}
-    </a>
-</li>
+{% if user.is_authenticated %}
+    <li>
+        <a href="{% url 'auth:edit' %}">
+            {{ user.first_name|default:'Пользователь' }}
+        </a>
+    </li>
 {% endif %}
+
+{% if user.is_superuser %}
+    <li>
+        <a href="{% url 'admin:user' %}">
+            админка
+        </a>
+    </li>
+{% endif %}
+
 <li>
     {% if user.is_authenticated %}
       <a href="{% url 'auth:logout' %}">выйти</a>
