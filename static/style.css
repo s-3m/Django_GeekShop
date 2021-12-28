@@ -94,6 +94,14 @@ html, body {
 	top: 63px;
 	left: 1230px;
 }
+.basket_summary {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.basket_record {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 .li_basket_count {
 	padding-left: 1px;
 	color: #8c8c8c;
@@ -869,7 +877,7 @@ td:first-child {
 	height: 70px;
 	background-color: #f4f4f4;
 	position: relative;
-	padding-left: 370px;
+	padding-left: 450px;
 }
 .links-menu {
 	margin:	27px auto 0px;	
@@ -1026,14 +1034,14 @@ td:first-child {
 	padding: 0px 98px;
 }
 .related .title {
-	height: 343px;
+	height: 150px;
 	margin-right: 0;
 }
 .related .title h2 {
-	margin-top: 245px;
+	margin-top: 20px;
 }
 .related .title .explore {
-	margin-top: 262px;
+	margin-top: 20px;
 }
 .related-products {
 	margin-bottom: 120px;
