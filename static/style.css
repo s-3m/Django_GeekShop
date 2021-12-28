@@ -1097,3 +1097,7 @@ td:first-child {
 	width: 300px;
 	height: 300px;
 }
+
+.category_record .not_active {
+	opacity: 0.5;
+}
