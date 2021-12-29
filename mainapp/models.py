@@ -17,7 +17,7 @@ class Product (models.Model):
     name = models.CharField(
         verbose_name='Наименование продукта', max_length=128)
     image = models.ImageField(
-        upload_to='products_images', blank=True)
+        upload_to='products_images', default='products_images/default.jpg', blank=True)
     short_dec = models.CharField(
         verbose_name='Краткое описание', max_length=64, blank=True)
     description = models.TextField(

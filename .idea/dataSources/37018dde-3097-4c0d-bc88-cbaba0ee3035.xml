@@ -1901,75 +1901,85 @@ model</ColNames>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <foreign-key id="614" parent="502">
+    <column id="614" parent="502" name="is_active">
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <foreign-key id="615" parent="502">
       <ColNames>category_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefColNames>id</RefColNames>
       <RefTableName>mainapp_productcategory</RefTableName>
     </foreign-key>
-    <index id="615" parent="502" name="mainapp_product_category_id_adb0278b">
+    <index id="616" parent="502" name="mainapp_product_category_id_adb0278b">
       <ColNames>category_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="616" parent="502">
+    <key id="617" parent="502">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="617" parent="503" name="id">
+    <column id="618" parent="503" name="id">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="618" parent="503" name="name">
+    <column id="619" parent="503" name="name">
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="619" parent="503" name="description">
+    <column id="620" parent="503" name="description">
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <index id="620" parent="503" name="sqlite_autoindex_mainapp_productcategory_1">
+    <column id="621" parent="503" name="is_active">
+      <DataType>bool|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <index id="622" parent="503" name="sqlite_autoindex_mainapp_productcategory_1">
       <ColNames>name</ColNames>
       <ColumnCollations></ColumnCollations>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="621" parent="503">
+    <key id="623" parent="503">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="622" parent="503">
+    <key id="624" parent="503">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_mainapp_productcategory_1</UnderlyingIndexName>
     </key>
-    <column id="623" parent="504" name="type">
+    <column id="625" parent="504" name="type">
       <DataType>text|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="624" parent="504" name="name">
+    <column id="626" parent="504" name="name">
       <DataType>text|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="625" parent="504" name="tbl_name">
+    <column id="627" parent="504" name="tbl_name">
       <DataType>text|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="626" parent="504" name="rootpage">
+    <column id="628" parent="504" name="rootpage">
       <DataType>int|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="627" parent="504" name="sql">
+    <column id="629" parent="504" name="sql">
       <DataType>text|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="628" parent="505" name="name">
+    <column id="630" parent="505" name="name">
       <Position>1</Position>
     </column>
-    <column id="629" parent="505" name="seq">
+    <column id="631" parent="505" name="seq">
       <Position>2</Position>
     </column>
   </database-model>

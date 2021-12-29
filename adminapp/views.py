@@ -5,8 +5,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
 from authapp.forms import ShopUserRegisterForm
-from adminapp.forms import ShopUserAdminEditForm
-from adminapp.forms import ProductEditForm
+from adminapp.forms import ProductEditForm, ShopUserAdminEditForm, ProductCategoryEditForm
 import pdb
 
 
@@ -93,17 +92,47 @@ def categories(request):
 
 @user_passes_test(lambda u: u.is_superuser)
 def category_create(request):
-    pass
+    title = 'Создание новой категории товаров'
+    if request.method == 'POST':
+        category_form = ProductCategoryEditForm(request.POST)
+        if category_form.is_valid():
+            category_form.save()
+            return HttpResponseRedirect(reverse('admin:categories'))
+    else:
+        category_form = ProductCategoryEditForm()
+    content = {'title': title, 'update_form': category_form}
+    return render(request, 'adminapp/category_update.html', content)
+
 
 
 @user_passes_test(lambda u: u.is_superuser)
 def category_update(request, pk):
-    pass
+    title = 'Редактор категории'
+    category = get_object_or_404(ProductCategory, pk=pk)
+
+    if request.method == 'POST':
+        category_update_form = ProductCategoryEditForm(request.POST, instance=category)
+        if category_update_form.is_valid():
+            category_update_form.save()
+            return HttpResponseRedirect(reverse('admin:categories'))
+    else:
+        category_update_form = ProductCategoryEditForm(instance=category)
+
+    content = {'title': title, 'update_form': category_update_form}
+    return render(request, 'adminapp/category_update.html', content)
 
 
 @user_passes_test(lambda u: u.is_superuser)
 def category_delete(request, pk):
-    pass
+    title = 'Удаление категории'
+    category = get_object_or_404(ProductCategory, pk=pk)
+
+    if request.method == 'POST':
+        category.is_active = False
+        category.save()
+        return HttpResponseRedirect(reverse('admin:categories'))
+    content = {'title': title, 'category_to_delete': category}
+    return render(request, 'adminapp/category_delete.html', content)
 
 
 @user_passes_test(lambda u: u.is_superuser)
