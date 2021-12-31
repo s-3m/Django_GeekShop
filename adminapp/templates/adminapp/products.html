@@ -9,7 +9,7 @@
       </a>
     </button>
 		
-    {% for object in object_list %}
+    {% for object in products_of_pk_category %}
       <div class="product_record">
         <img 
           src="/media/{{object.image|default:'products_images/default.jpg'}}"
