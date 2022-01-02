@@ -253,7 +253,7 @@ def product_update(request, pk):
         edit_form = ProductEditForm(request.POST, request.FILES, instance=edit_product)
         if edit_form.is_valid():
             edit_form.save()
-            return HttpResponseRedirect(reverse('admin:product_update', args=edit_product.pk))
+            return HttpResponseRedirect(reverse('admin:product_update', args=[pk]))
     else:
         edit_form = ProductEditForm(instance=edit_product)
 

@@ -1,5 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
+{% load my_tags %}
 
 {% block content %}
   <div class="hero-white">
@@ -9,9 +10,8 @@
   </div>
 
   <div class="details">
-    <div class="links clearfix">
+
       {% include 'mainapp/includes/inc_prod_menu.html' %}
-    </div>
 
     <div class="products_list">
     <div class="paginator">
@@ -38,7 +38,7 @@
         {% for product in products %}
           <div class="block">
             <a href="{% url 'products:product' product.pk %}">
-                <img src="/media/{{ product.image }}" width=200px height=200px alt="">
+                <img src="{{ product.image|media_folder_products }}" width=200px height=200px alt="">
               <div class="text">
                 <img src="{% static 'img/icon-hover.png' %}" alt="hover">
                   <h4>{{ product.name }}</h4>
