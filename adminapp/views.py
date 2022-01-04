@@ -12,8 +12,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 
-import pdb
-
 
 # Create your views here.
 
@@ -24,7 +22,6 @@ class UserListView(ListView):
     @method_decorator(user_passes_test(lambda u: u.is_superuser))
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-
 
 
 # @user_passes_test(lambda u: u.is_superuser)
@@ -117,6 +114,7 @@ class ProductCategoryCreateView(CreateView):
         context['title'] = 'категории/добавление'
         return context
 
+
 # @user_passes_test(lambda u: u.is_superuser)
 # def category_create(request):
 #     title = 'Создание новой категории товаров'
@@ -131,7 +129,6 @@ class ProductCategoryCreateView(CreateView):
 #     return render(request, 'adminapp/category_update.html', content)
 
 
-
 class ProductCategoryUpdate(UpdateView):
     model = ProductCategory
     template_name = 'adminapp/category_update.html'
@@ -142,6 +139,7 @@ class ProductCategoryUpdate(UpdateView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'категории/редактирование'
         return context
+
 
 # @user_passes_test(lambda u: u.is_superuser)
 # def category_update(request, pk):
@@ -188,31 +186,16 @@ class ProductCategoryDeleteView(DeleteView):
 class ProductsListView(ListView):
     model = Product
     template_name = 'adminapp/products.html'
+    paginate_by = 2
+
+    def get_queryset(self):
+        return Product.objects.filter(category__id=self.kwargs['pk'])
+
 
     @method_decorator(user_passes_test(lambda u: u.is_superuser))
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['category'] = self.kwargs['pk']
-        context['products_of_pk_category'] = self.model.objects.filter(category__id=context['category'])
-        return context
-
-# @user_passes_test(lambda u: u.is_superuser)
-# def products(request, pk):
-#     title = 'админка/продукт'
-#
-#     category = get_object_or_404(ProductCategory, pk=pk)
-#     products_list = Product.objects.filter(category__pk=pk).order_by('name')
-#
-#     content = {
-#         'title': title,
-#         'category': category,
-#         'objects': products_list,
-#     }
-#
-#     return render(request, 'adminapp/products.html', content)
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -235,6 +218,7 @@ def product_create(request, pk):
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'adminapp/product_read.html'
+
 
 # @user_passes_test(lambda u: u.is_superuser)
 # def product_read(request, pk):
@@ -273,4 +257,3 @@ def product_delete(request, pk):
 
     content = {'title': title, 'product_on_delete': product}
     return render(request, 'adminapp/product_delete.html', content)
-
