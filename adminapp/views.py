@@ -89,18 +89,24 @@ def user_delete(request, pk):
     return render(request, 'adminapp/user_delete.html', content)
 
 
-@user_passes_test(lambda u: u.is_superuser)
-def categories(request):
-    title = 'админка/категории'
+class ProductCategoryList(ListView):
+    model = ProductCategory
+    template_name = 'adminapp/categories.html'
 
-    categories_list = ProductCategory.objects.all()
 
-    content = {
-        'title': title,
-        'objects': categories_list
-    }
 
-    return render(request, 'adminapp/categories.html', content)
+# @user_passes_test(lambda u: u.is_superuser)
+# def categories(request):
+#     title = 'админка/категории'
+#
+#     categories_list = ProductCategory.objects.all()
+#
+#     content = {
+#         'title': title,
+#         'objects': categories_list
+#     }
+#
+#     return render(request, 'adminapp/categories.html', content)
 
 
 class ProductCategoryCreateView(CreateView):
@@ -189,7 +195,17 @@ class ProductsListView(ListView):
     paginate_by = 2
 
     def get_queryset(self):
-        return Product.objects.filter(category__id=self.kwargs['pk'])
+        if self.kwargs['pk'] != 0:
+            return Product.objects.filter(category__id=self.kwargs['pk'])
+        else:
+            return Product.objects.all()
+
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'продукты/категории'
+        context['category'] = self.kwargs['pk']
+        return context
 
 
     @method_decorator(user_passes_test(lambda u: u.is_superuser))

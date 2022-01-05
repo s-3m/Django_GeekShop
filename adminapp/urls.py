@@ -10,7 +10,7 @@ urlpatterns = [
     path('users/delete/<int:pk>/', adminapp.user_delete, name='user_delete'),
 
     path('categories/create/', adminapp.ProductCategoryCreateView.as_view(), name='category_create'),
-    path('categories/read/', adminapp.categories, name='categories'),
+    path('categories/read/', adminapp.ProductCategoryList.as_view(), name='categories'),
     path('categories/update/<int:pk>/', adminapp.ProductCategoryUpdate.as_view(), name='category_update'),
     path('categories/delete/<int:pk>/', adminapp.ProductCategoryDeleteView.as_view(), name='category_delete'),
 

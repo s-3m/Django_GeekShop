@@ -3,29 +3,16 @@
 
 {% block content %}
   <div class="products_list">
+
+  {% if category != 0 %}
     <button class="new_product">
       <a href={% url 'admin:product_create' object_list.0.category.pk %}>
         новый продукт
       </a>
     </button>
-
-    {% if is_paginated %}
-      <div class="pagination">
-          <span class="page-links">
-              {% if page_obj.has_previous %}
-                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-              {% endif %}
-              <span class="page-current">
-                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-              </span>
-              {% if page_obj.has_next %}
-                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
-              {% endif %}
-          </span>
-      </div>
   {% endif %}
-		
-    {% for object in object_list %}
+
+    {% for object in product_list %}
       <div class="product_record">
         <img 
           src="/media/{{object.image|default:'products_images/default.jpg'}}"

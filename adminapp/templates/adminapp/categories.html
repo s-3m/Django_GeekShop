@@ -8,8 +8,24 @@
         новая категория
       </a>
     </button>
-		
-    {% for object in objects %}
+
+
+  <div class="category_record">
+         <div class="category_name">
+          Все товары
+        </div>
+        <div class="category_actions">
+          <button>
+            <a href={% url 'admin:products' 0 %}>
+              товары категории
+            </a>
+          </button>
+        </div>
+  </div>
+
+
+
+    {% for object in object_list %}
       <div class="category_record {% if not object.is_active %}not active{% endif %}">
          <div class="category_name">
           {{ object.name|title }} ({% if object.is_active == True %}Категоря активна{% else %}Категория не активна{% endif %})
