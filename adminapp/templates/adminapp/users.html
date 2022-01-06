@@ -32,7 +32,7 @@
           </button>
         </div>
         <p class="user_name">
-          <p><strong>{{ object.username }}</strong></p>
+          <p><strong>{{ object.username }} {% if object.is_active == False %}(Не активен){% endif %}</strong></p>
 	    <p>
             {% if object.first_name %}
               <b>{{ object.first_name|title }}</b>
