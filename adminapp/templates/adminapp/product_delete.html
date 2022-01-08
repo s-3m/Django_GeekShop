@@ -3,14 +3,14 @@
 
 {% block content %}
   <div class="user_delete">
-    Уверены, что хотите удалить "{{ product_on_delete.name|title }}"?
-    <form action="{% url 'admin:product_delete' product_on_delete.pk %}"
+    Уверены, что хотите удалить "{{ object.name|title }}"?
+    <form action="{% url 'admin:product_delete' object.pk %}"
           method="post">
       {% csrf_token %}
       <input class="btn btn-danger" type="submit" value="удалить">
     </form>
     <button class="btn btn-success">
-      <a href="{% url 'admin:products' product_on_delete.category.pk %}">
+      <a href="{% url 'admin:products' object.category.pk %}">
         Отмена
       </a>
     </button>

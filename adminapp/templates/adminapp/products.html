@@ -18,7 +18,7 @@
           src="/media/{{object.image|default:'products_images/default.jpg'}}"
           alt="{{ object.name }}" width=400px height=400px>
         <div class="product_name">
-          {{ object.name|title }}
+          {{ object.name|title }} ({{ object.is_active }})
         </div>
         <div class="product_actions">
           <button>
@@ -27,7 +27,7 @@
             </a>
           </button>
           <button>
-            <a href={% url 'admin:product_update' object.pk %}>
+            <a href={% url 'admin:product_update' category %}>
               редактировать
             </a>
           </button>
