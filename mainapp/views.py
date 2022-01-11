@@ -2,13 +2,10 @@ from random import shuffle, choice
 from django.shortcuts import render, get_object_or_404
 from .models import Product, ProductCategory
 from basketapp.models import Basket
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
-
-# with open('mainapp/main_menu.json', 'r', encoding='utf-8') as menu_file:
-#     main_menu_links_dict = json.load(menu_file)
-# main_menu_links = [i for i in main_menu_links_dict['menu_links']]
 main_menu_links = [
     {"href": "main", "name": "Главная"},
     {"href": "products:index", "name": "Продукты"},
@@ -17,7 +14,7 @@ main_menu_links = [
 
 
 def all_prod():
-    all_products = Product.objects.all()
+    all_products = Product.objects.all().exclude(is_active=False)
     my_list = list(all_products)
     shuffle(my_list)
     return my_list[0:4]
@@ -31,14 +28,14 @@ def get_basket(user):
 
 
 def get_hot_product():
-    products = Product.objects.all()
+    products = Product.objects.all().exclude(is_active=False)
 
     return choice(list(products))
 
 
 def get_same_products(hot_product):
     same_products = Product.objects.filter(category=hot_product.category). \
-                        exclude(pk=hot_product.pk)[:3]
+                        exclude(pk=hot_product.pk, is_active=False)[:3]
 
     return same_products
 
@@ -55,11 +52,9 @@ def index(request):
                                                           'total_cost': total_cost})
 
 
-def products(request, pk=None):
+def products(request, pk=None, page=1):
     title = "продукты"
     prod_menu_links = ProductCategory.objects.all()
-    # related_products = all_prod()[:3] if not pk else Product.objects.filter(
-    #     category__id=pk)
     hot_product = get_hot_product()
     same_product = get_same_products(hot_product)
     basket = []
@@ -70,34 +65,29 @@ def products(request, pk=None):
 
     if pk is not None:
         if pk == 0:
-            all_products = Product.objects.all().order_by("price")
-            category = {'name': 'все'}
+            category = {'pk': 0, 'name': 'все'}
+            products = Product.objects.filter(is_active=True,
+                                              category__is_active=True).order_by('price')
+
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
-            all_products = Product.objects.filter(category__pk=pk).order_by('price')
+            products = Product.objects.filter(category__pk=pk).exclude(is_active=False).order_by('price')
+
+        paginator = Paginator(products, 2)
+        try:
+            products_paginator = paginator.page(page)
+        except PageNotAnInteger:
+            products_paginator = paginator.page(1)
+        except EmptyPage:
+            products_paginator = paginator.page(paginator.num_pages)
 
         return render(request, 'mainapp/products_list.html', context={'main_menu_links': main_menu_links,
                                                                       'prod_menu_links': prod_menu_links,
                                                                       'title': title,
                                                                       'category': category,
-                                                                      'all_products': all_products,
+                                                                      'products': products_paginator,
                                                                       'total_cost': total_cost,
                                                                       'basket': basket, })
-
-    if pk:
-        if pk == '0':
-            products = Product.objects.all().order_by('price')
-            category = {'name': 'все'}
-        else:
-            category = get_object_or_404(ProductCategory, pk=pk)
-            products = Product.objects.filter(category__pk=pk).order_by('price')
-
-        return render(request, 'mainapp/products_list.html', context={'title': title,
-                                                                      'links_menu': prod_menu_links,
-                                                                      'category': category,
-                                                                      'products': products,
-                                                                      'basket': basket,
-                                                                      'total_cost': total_cost})
 
     return render(request, 'mainapp/products.html', context={'main_menu_links': main_menu_links,
                                                              'prod_menu_links': prod_menu_links,
