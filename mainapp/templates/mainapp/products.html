@@ -1,5 +1,6 @@
 {% extends 'mainapp/base.html'%}
 {% load static %}
+{% load my_tags %}
 
 {% block title %}Каталог{% endblock %}
 {% block content %}
@@ -16,11 +17,9 @@
         <div class="details-products">
             <div class="details-slider">
                 <div class="slider-product">
-                    <img src="/media/{{ hot_product.image }}" width=600px height=600px alt="">
+                    <img src="{{ hot_product.image|media_folder_products }}" width=600px height=600px alt="">
                 </div>
             </div>
-
-<
             <div class="description">
                 <h3 class="big-bold">{{ hot_product.name }}</h3>
                 <h3 class="red">горячее предложение</h3>

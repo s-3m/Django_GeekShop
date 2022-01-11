@@ -8,7 +8,7 @@
         новый пользователь
       </a>
     </button>
-    {% for object in objects %}
+    {% for object in object_list %}
       <div 
        class="user_record {% if not object.is_active %}not_active{% endif %}">
         <img 
@@ -32,7 +32,7 @@
           </button>
         </div>
         <p class="user_name">
-          <p><strong>{{ object.username }}</strong></p>
+          <p><strong>{{ object.username }} {% if object.is_active == False %}(Не активен){% endif %}</strong></p>
 	    <p>
             {% if object.first_name %}
               <b>{{ object.first_name|title }}</b>

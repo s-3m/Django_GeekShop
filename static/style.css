@@ -878,6 +878,7 @@ td:first-child {
 	background-color: #f4f4f4;
 	position: relative;
 	padding-left: 450px;
+	margin: 20px;
 }
 .links-menu {
 	margin:	27px auto 0px;	
@@ -1100,4 +1101,8 @@ td:first-child {
 
 .category_record .not_active {
 	opacity: 0.5;
+}
+.paginator {
+	text-align: center;
+	margin-bottom: 20px;
 }
