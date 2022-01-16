@@ -1,7 +1,6 @@
 from random import shuffle, choice
 from django.shortcuts import render, get_object_or_404
 from .models import Product, ProductCategory
-from basketapp.models import Basket
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
@@ -20,12 +19,6 @@ def all_prod():
     return my_list[0:4]
 
 
-def get_basket(user):
-    if user.is_authenticated:
-        return Basket.objects.filter(user=user)
-    else:
-        return []
-
 
 def get_hot_product():
     products = Product.objects.all().exclude(is_active=False)
@@ -41,15 +34,8 @@ def get_same_products(hot_product):
 
 
 def index(request):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-    total_cost = sum(i.product.price for i in basket)
-
     return render(request, 'mainapp/index.html', context={'main_menu_links': main_menu_links,
-                                                          'products': all_prod(),
-                                                          'basket': basket,
-                                                          'total_cost': total_cost})
+                                                          'products': all_prod()})
 
 
 def products(request, pk=None, page=1):
@@ -57,11 +43,6 @@ def products(request, pk=None, page=1):
     prod_menu_links = ProductCategory.objects.all()
     hot_product = get_hot_product()
     same_product = get_same_products(hot_product)
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-
-    total_cost = sum(i.product.price for i in basket)
 
     if pk is not None:
         if pk == 0:
@@ -85,16 +66,12 @@ def products(request, pk=None, page=1):
                                                                       'prod_menu_links': prod_menu_links,
                                                                       'title': title,
                                                                       'category': category,
-                                                                      'products': products_paginator,
-                                                                      'total_cost': total_cost,
-                                                                      'basket': basket, })
+                                                                      'products': products_paginator})
 
     return render(request, 'mainapp/products.html', context={'main_menu_links': main_menu_links,
                                                              'prod_menu_links': prod_menu_links,
                                                              'hot_product': hot_product,
                                                              'same_product': same_product,
-                                                             'basket': basket,
-                                                             'total_cost': total_cost,
                                                              'title': title})
 
 
@@ -104,15 +81,10 @@ def product(request, pk):
     return render(request, 'mainapp/product.html', context={'title': title,
                                                             'links_menu': ProductCategory.objects.all(),
                                                             'product': get_object_or_404(Product, pk=pk),
-                                                            'basket': get_basket(request.user),
+                                                            # 'basket': get_basket(request.user),
                                                             'main_menu_links': main_menu_links})
 
 
 def contact(request):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-    total_cost = sum(i.product.price for i in basket)
-    return render(request, 'mainapp/contact.html', context={'main_menu_links': main_menu_links,
-                                                            'basket': basket,
-                                                            'total_cost': total_cost})
+    return render(request, 'mainapp/contact.html', context={
+        'main_menu_links': main_menu_links})
