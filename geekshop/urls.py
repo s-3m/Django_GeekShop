@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include
+from django.urls import path, re_path
+from mainapp import views as mainapp_views
 
 """geekshop URL Configuration
 
@@ -17,13 +19,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
-from mainapp import views as mainapp_views
 
 urlpatterns = [
-    path('', mainapp_views.index, name='main'),
-    path('products/', include('mainapp.urls', namespace='products')),
+    re_path(r'^$', mainapp_views.index, name='main'),
+    re_path(r'^products/', include('mainapp.urls', namespace='products')),
     path('contact/', mainapp_views.contact, name='contact'),
     path('auth/', include('authapp.urls', namespace='auth')),
     # path('admin/', admin.site.urls),
