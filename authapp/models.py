@@ -6,7 +6,7 @@ from datetime import timedelta
 # Create your models here.
 class ShopUser(AbstractUser):
     avatar = models.ImageField(upload_to='users_avatar', blank=True)
-    age = models.PositiveIntegerField(verbose_name='Возраст', null=True)
+    age = models.PositiveIntegerField(verbose_name='Возраст', default=18, null=True)
     city = models.CharField(verbose_name='Город', max_length=36, blank=True)
 
     activation_key = models.CharField(verbose_name='Код активации', max_length=128, blank=True)
@@ -18,4 +18,3 @@ class ShopUser(AbstractUser):
             return False
         else:
             return True
-
