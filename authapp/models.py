@@ -44,3 +44,27 @@ class ShopUserProfile(models.Model):
     @receiver(post_save, sender=ShopUser)
     def save_user_profile(sender, instance, **kwargs):
         instance.shopuserprofile.save()
+
+
+class ShopUserProfileForTest(models.Model):
+    male = "M"
+    female = "F"
+
+    gender_choices = (
+        (male, 'M'),
+        (female, 'F')
+    )
+
+    user = models.OneToOneField(ShopUser, unique=True, null=False, db_index=True, on_delete=models.CASCADE)
+    tagline = models.CharField(verbose_name='теги', max_length=128, blank=True)
+    aboutMe = models.TextField(verbose_name='о себе', max_length=512, blank=True)
+    gender = models.CharField(verbose_name='пол', max_length=1, choices=gender_choices, blank=True)
+
+    @receiver(post_save, sender=ShopUser)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            ShopUserProfile.objects.create(user=instance)
+
+    @receiver(post_save, sender=ShopUser)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.shopuserprofile.save()
