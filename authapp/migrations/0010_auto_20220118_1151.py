@@ -22,7 +22,4 @@ class Migration(migrations.Migration):
             name='gender',
             field=models.CharField(blank=True, choices=[('M', 'Male'), ('F', 'Fimale')], max_length=1, verbose_name='пол'),
         ),
-        migrations.DeleteModel(
-            name='ShopUserProfileForTest',
-        ),
     ]

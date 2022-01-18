@@ -35,6 +35,8 @@ class ShopUserProfile(models.Model):
     tagline = models.CharField(verbose_name='теги', max_length=128, blank=True)
     aboutMe = models.TextField(verbose_name='о себе', max_length=512, blank=True)
     gender = models.CharField(verbose_name='пол', max_length=1, choices=gender_choices, blank=True)
+    domain = models.CharField(verbose_name='ссылка на профиль', max_length=256, blank=True)
+    faw_music = models.CharField(verbose_name='любимая музыка', max_length=1000, blank=True)
 
     @receiver(post_save, sender=ShopUser)
     def create_user_profile(sender, instance, created, **kwargs):

@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-sv_&=57bk*4!jv^qz_t2!8ov4vg3ib$_wy9=_9rk%)o4)a0sz2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -148,15 +148,13 @@ LOGIN_ERROR_URL = '/'
 
 DOMAIN_NAME = 'http://localhost:8000'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'samarenkora@mosmetod.ru'
-EMAIL_HOST_PASSWORD = 'tkztdf271210'
-EMAIL_USE_SSL = True
-# EMAIL_USE_TLS = True
-# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'admin@geekshop.ru'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_USE_SSL = False
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = 'tmp/email-messages/'
-
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.vk.VKOAuth2',
