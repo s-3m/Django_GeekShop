@@ -138,12 +138,13 @@ LOGIN_URL = '/auth/login/'
 
 DOMAIN_NAME = 'http://localhost:8000'
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = '25'
-EMAIL_HOST_USER = 'django@geekshop.local'
-EMAIL_HOST_PASSWORD = 'geekshop'
-EMAIL_USE_SSL = False
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'samarenkora@mosmetod.ru'
+EMAIL_HOST_PASSWORD = 'tkztdf271210'
+EMAIL_USE_SSL = True
+# EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = 'tmp/email-messages/'
 
 AUTHENTICATION_BACKENDS = (

@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, ProductCategory
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+
 # Create your views here.
 
 main_menu_links = [
@@ -17,7 +18,6 @@ def all_prod():
     my_list = list(all_products)
     shuffle(my_list)
     return my_list[0:4]
-
 
 
 def get_hot_product():
@@ -43,18 +43,19 @@ def products(request, pk=None, page=1):
     prod_menu_links = ProductCategory.objects.all()
     hot_product = get_hot_product()
     same_product = get_same_products(hot_product)
-
+    # pdb.set_trace()
     if pk is not None:
-        if pk == 0:
+        if pk == '0':
             category = {'pk': 0, 'name': 'все'}
             products = Product.objects.filter(is_active=True,
                                               category__is_active=True).order_by('price')
+
 
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
             products = Product.objects.filter(category__pk=pk).exclude(is_active=False).order_by('price')
 
-        paginator = Paginator(products, 2)
+        paginator = Paginator(products, 4)
         try:
             products_paginator = paginator.page(page)
         except PageNotAnInteger:
