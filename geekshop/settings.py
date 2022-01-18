@@ -153,8 +153,10 @@ EMAIL_PORT = '25'
 EMAIL_HOST_USER = 'admin@geekshop.ru'
 EMAIL_HOST_PASSWORD = 'password'
 EMAIL_USE_SSL = False
+
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = 'tmp/email-messages/'
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.vk.VKOAuth2',
