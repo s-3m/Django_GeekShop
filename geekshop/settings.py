@@ -148,13 +148,13 @@ LOGIN_ERROR_URL = '/'
 
 DOMAIN_NAME = 'http://localhost:8000'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'samarenkora@mosmetod.ru'
-EMAIL_HOST_PASSWORD = 'tkztdf271210'
-EMAIL_USE_SSL = True
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'admin@gs.ru'
+EMAIL_HOST_PASSWORD = 'admon'
+EMAIL_USE_SSL = False
 # EMAIL_USE_TLS = True
-# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = 'tmp/email-messages/'
 
 AUTHENTICATION_BACKENDS = (
