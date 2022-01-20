@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73022395-be95-4135-a8bf-ff4dd7fe5ad4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/authapp/migrations/0003_auto_20220112_1603.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/authapp/templates/authapp/verification.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mainapp/context_processors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requared.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geekshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/geekshop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geekshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/geekshop/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainapp/migrations/0008_alter_product_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/migrations/0008_alter_product_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/includes/inc_main_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/includes/inc_main_menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,11 +62,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642361654665</updated>
-      <workItem from="1642361657832" duration="585000" />
+      <workItem from="1642361657832" duration="1217000" />
+      <workItem from="1642705955905" duration="6402000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
