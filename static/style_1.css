@@ -32,8 +32,7 @@ html, body {
 
 .logo {
 	background-image: url(img/logo.png);
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 63px;
 	width: 185px;
 	height: 22px;
 	float: left;
@@ -41,7 +40,7 @@ html, body {
 
 .menu {
 	list-style-type: none;
-	margin-top: 15px;
+	margin-top: 67px;
 	float: right;
 }
 .menu li {
@@ -77,40 +76,18 @@ html, body {
 	width: 23px;
 	height: 23px;	
 	background-image: url(img/search.png);
-	background-repeat: no-repeat;
-	/*position: absolute;*/
-	margin-left: 30px;
+	position: absolute;
 	top: 63px;
 	left: 1176px;
 }
-.menu .basket {
+.basket {
 	display: block;
 	width: 23px;
-	height: 23px;
+	height: 23px;	
 	background-image: url(img/basket.png);
-	background-repeat: no-repeat;
-	margin-left: 10px;
-	padding-right: 0;
-	/*position: absolute;*/
+	position: absolute;
 	top: 63px;
-	left: 1230px;
-}
-.basket_summary {
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
-.basket_record {
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-.li_basket_count {
-	padding-left: 1px;
-	color: #8c8c8c;
-	font-size: 14px;
-	font-weight: 700;
-	text-align: right;
-	text-transform: uppercase;
-	text-decoration: none;
+	left: 1210px;
 }
 
 .clearfix:after {
@@ -300,6 +277,12 @@ html, body {
     text-align: center;
     border: 1px solid #9c9c9c;
 }
+
+.tab-content a .product-image {
+	height: 268px;
+	width: 268px;
+}
+
 .tab-content a .text h4 {
 	color:  #212121;
 	font-size: 22px;
@@ -376,7 +359,7 @@ html, body {
 }
 .title h2 {
 	float: left;
-	margin-top: 20px;
+	margin-top: 118px;
 	color:  #212121;
 	font-size: 36px;
 	font-weight: 700;
@@ -878,8 +861,7 @@ td:first-child {
 	height: 70px;
 	background-color: #f4f4f4;
 	position: relative;
-	padding-left: 380px;
-	margin: 20px;
+	padding-left: 360px;
 }
 .links-menu {
 	margin:	27px auto 0px;	
@@ -914,9 +896,8 @@ td:first-child {
 }
 
 .details-products {
-	display: flex;
-	padding-left: 0px;
-	padding-right: 0px;
+	padding-left: 98px;
+	padding-right: 98px;
 	margin-top: 98px;
 	height: 651px; 
 }
@@ -1034,20 +1015,19 @@ td:first-child {
 }
 
 .related {
-	padding: 0px 0px;
+	padding: 0px 98px;
 }
 .related .title {
-	height: 150px;
+	height: 343px;
 	margin-right: 0;
 }
 .related .title h2 {
-	margin-top: 20px;
+	margin-top: 245px;
 }
 .related .title .explore {
-	margin-top: 20px;
+	margin-top: 262px;
 }
 .related-products {
-	display: flex;
 	margin-bottom: 120px;
 }
 .related-products .block a img {
@@ -1096,16 +1076,6 @@ td:first-child {
 .related-products a:hover .text{
 	display: block;
 }
-
-.list_of_prod {
-	width: 300px;
-	height: 300px;
-}
-
-.category_record .not_active {
-	opacity: 0.5;
-}
-.paginator {
-	text-align: center;
-	margin-bottom: 20px;
+.errorlist {
+	color: red;
 }
