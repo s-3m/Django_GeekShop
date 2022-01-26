@@ -2,6 +2,9 @@ from django.db import models
 
 from django.conf import settings
 from mainapp.models import Product
+from basketapp.models import Basket
+from django.dispatch import receiver
+from django.db.models.signals import pre_save, pre_delete
 
 
 # Create your models here.
@@ -35,7 +38,7 @@ class Order(models.Model):
         verbose_name_plural = 'заказы'
 
     def __str__(self):
-        return 'Текущий заказ: {}'.format(self.id)
+        return f'Текущий заказ: {self.id}'
 
     def get_total_quantity(self):
         items = self.orderitems.select_related()
@@ -58,7 +61,16 @@ class Order(models.Model):
         self.save()
 
 
+class OrderItemQuerySet(models.QuerySet):
+    def delete(self, *args, **kwargs):
+        for object in self:
+            object.product.quantity += object.quentity
+            object.product.save()
+        super(OrderItemQuerySet, self).delete(*args, **kwargs)
+
+
 class OrderItem(models.Model):
+    # objects = OrderItemQuerySet.as_manager()
     order = models.ForeignKey(Order,
                               related_name="orderitems",
                               on_delete=models.CASCADE)
@@ -70,3 +82,24 @@ class OrderItem(models.Model):
 
     def get_product_cost(self):
         return self.product.price * self.quantity
+
+    def delete(self):
+        self.product.quantity += self.quantity
+        self.product.save()
+        super(self.__class__, self).delete()
+
+
+@receiver(pre_save, sender=OrderItem)
+def product_quantity_update_save(sender, update_fields, instance, **kwargs):
+    if update_fields is 'quantity' or 'product':
+        if instance.pk:
+            instance.product.quantity -= instance.quantity - sender.objects.get(pk=instance.pk).quantity
+        else:
+            instance.product.quantity -= instance.quantity
+        instance.product.save()
+
+
+@receiver(pre_delete, sender=OrderItem)
+def product_quantity_update_delete(sender, instance, **kwargs):
+    instance.product.quantity += instance.quantity
+    instance.product.save()
