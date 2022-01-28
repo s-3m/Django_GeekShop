@@ -10,6 +10,8 @@ from django.views.generic.detail import DetailView
 from basketapp.models import Basket
 from ordersapp.models import Order, OrderItem
 from ordersapp.forms import OrderItemForm
+from mainapp.models import Product
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -126,3 +128,12 @@ def order_forming_complete(request, pk):
    order.save()
 
    return HttpResponseRedirect(reverse('ordersapp:orders_list'))
+
+
+def get_product_price(request, pk):
+   if request.is_ajax():
+       product = Product.objects.filter(pk=int(pk)).first()
+       if product:
+           return JsonResponse({'price': product.price})
+       else:
+           return JsonResponse({'price': 0})
