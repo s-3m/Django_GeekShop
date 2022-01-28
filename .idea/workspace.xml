@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="851789cd-8b20-407c-a81f-6573ad9636ce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/js/orders_script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/orders_script_1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordersapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordersapp/templates/ordersapp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/templates/ordersapp/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordersapp/templates/ordersapp/includes/inc_order_summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/templates/ordersapp/includes/inc_order_summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordersapp/templates/ordersapp/order_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/templates/ordersapp/order_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordersapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="851789cd-8b20-407c-a81f-6573ad9636ce" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
