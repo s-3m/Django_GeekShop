@@ -30,9 +30,10 @@ urlpatterns = [
     path('admin/', include('adminapp.urls', namespace='admin')),
     path('', include('social_django.urls', namespace='social')),
     path('order/', include('ordersapp.urls', namespace='order'))
-
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    import debug_toolbar
+
+    urlpatterns += [re_path(r'^__debug__/', include(debug_toolbar.urls))]

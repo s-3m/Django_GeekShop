@@ -9,6 +9,7 @@ from authapp.models import ShopUser
 from authapp.forms import ShopUserEditForm
 from django.db import transaction
 from authapp.forms import ShopUserProfileEditForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -72,6 +73,7 @@ def register(request):
 
 
 @transaction.atomic
+@login_required
 def edit(request):
     title = 'редактирование'
 

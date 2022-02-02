@@ -12,7 +12,7 @@ from django.http import JsonResponse
 @login_required
 def basket(request):
     title = 'Корзина'
-    basket_items = Basket.objects.filter(user=request.user).order_by('product__category')
+    basket_items = Basket.objects.filter(user=request.user).order_by('product__category').select_related()
     content = {'basket_items': basket_items, 'title': title}
     return render(request, 'basketapp/basket.html', content)
 
@@ -24,7 +24,7 @@ def basket_add(request, pk):
         return HttpResponseRedirect(reverse('products:product', args=[pk]))
     product = get_object_or_404(Product, pk=pk)
 
-    basket = Basket.objects.filter(user=request.user, product=product).first()
+    basket = Basket.objects.filter(user=request.user, product=product).select_related().first()
 
     if not basket:
         basket = Basket(user=request.user, product=product)
@@ -56,7 +56,7 @@ def basket_edit(request, pk, quantity):
         else:
             new_basket_item.delete()
 
-        basket_item = Basket.objects.filter(user=request.user).order_by('product__category')
+        basket_item = Basket.objects.filter(user=request.user).order_by('product__category').select_related()
         content = {'basket_items': basket_item}
 
         result = render_to_string('basketapp/include/inc_basket_list.html', content)

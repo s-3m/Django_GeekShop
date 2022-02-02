@@ -14,21 +14,20 @@ main_menu_links = [
 
 
 def all_prod():
-    all_products = Product.objects.all().exclude(is_active=False)
+    all_products = Product.objects.filter(is_active=True).select_related()[:3]
     my_list = list(all_products)
     shuffle(my_list)
-    return my_list[0:4]
+    return my_list
 
 
 def get_hot_product():
-    products = Product.objects.all().exclude(is_active=False)
+    products = Product.objects.filter(is_active=True)
 
     return choice(list(products))
 
 
 def get_same_products(hot_product):
-    same_products = Product.objects.filter(category=hot_product.category). \
-                        exclude(pk=hot_product.pk, is_active=False)[:3]
+    same_products = Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk, is_active=False).select_related()[:3]
 
     return same_products
 
@@ -48,12 +47,12 @@ def products(request, pk=None, page=1):
         if pk == '0':
             category = {'pk': 0, 'name': 'все'}
             products = Product.objects.filter(is_active=True,
-                                              category__is_active=True).order_by('price')
+                                              category__is_active=True).order_by('price').select_related()
 
 
         else:
             category = get_object_or_404(ProductCategory, pk=pk)
-            products = Product.objects.filter(category__pk=pk).exclude(is_active=False).order_by('price')
+            products = Product.objects.filter(category__pk=pk, is_active=True).order_by('price').select_related()
 
         paginator = Paginator(products, 4)
         try:

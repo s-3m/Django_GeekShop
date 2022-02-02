@@ -3,7 +3,7 @@ import os
 from django.core.management.base import BaseCommand
 from mainapp.models import ProductCategory, Product
 
-JSON_PATH = 'mainapp/json'
+JSON_PATH = 'mainapp/JSON'
 
 
 def load_from_json(file_name):
