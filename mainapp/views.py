@@ -3,6 +3,11 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, ProductCategory
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from social_core.backends.vk import VKOAuth2
+from django.core.cache import cache
+from geekshop import settings
+from django.template.loader import render_to_string
+from django.views.decorators.cache import cache_page
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -13,8 +18,20 @@ main_menu_links = [
 ]
 
 
+def get_all_products():
+    if settings.LOW_CACHE:
+        key = f'all_products'
+        all_products = cache.get(key)
+        if all_products is None:
+            all_products = Product.objects.filter(is_active=True).select_related()[:3]
+            cache.set(key, all_products)
+        return all_products
+    else:
+        return Product.objects.filter(is_active=True).select_related()[:3]
+
+
 def all_prod():
-    all_products = Product.objects.filter(is_active=True).select_related()[:3]
+    all_products = get_all_products()
     my_list = list(all_products)
     shuffle(my_list)
     return my_list
@@ -27,7 +44,8 @@ def get_hot_product():
 
 
 def get_same_products(hot_product):
-    same_products = Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk, is_active=False).select_related()[:3]
+    same_products = Product.objects.filter(category=hot_product.category).exclude(pk=hot_product.pk,
+                                                                                  is_active=False).select_related()[:3]
 
     return same_products
 
@@ -73,6 +91,40 @@ def products(request, pk=None, page=1):
                                                              'hot_product': hot_product,
                                                              'same_product': same_product,
                                                              'title': title})
+
+
+def products_ajax(request, pk=None, page=1):
+    title = "продукты"
+    prod_menu_links = ProductCategory.objects.all()
+    if pk:
+        if pk == '0':
+            category = {'pk': 0, 'name': 'все'}
+            products = Product.objects.filter(is_active=True,
+                                              category__is_active=True).order_by('price').select_related()
+
+        else:
+            category = get_object_or_404(ProductCategory, pk=pk)
+            products = Product.objects.filter(category__pk=pk, is_active=True).order_by('price').select_related()
+
+        paginator = Paginator(products, 4)
+        try:
+            products_paginator = paginator.page(page)
+        except PageNotAnInteger:
+            products_paginator = paginator.page(1)
+        except EmptyPage:
+            products_paginator = paginator.page(paginator.num_pages)
+
+        content = {
+            'main_menu_links': main_menu_links,
+            'prod_menu_links': prod_menu_links,
+            'title': title,
+            'category': category,
+            'products': products_paginator
+        }
+
+        result = render_to_string('mainapp/includes/inc_products_list_content.html', context=content, request=request)
+
+        return JsonResponse({'result': result})
 
 
 def product(request, pk):

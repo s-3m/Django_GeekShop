@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="851789cd-8b20-407c-a81f-6573ad9636ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a2f1a094-2802-4d6f-a002-231ccde07117.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a2f1a094-2802-4d6f-a002-231ccde07117.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/includes/inc_products_list_content.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/main_scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basketapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/basketapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basketapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/basketapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geekshop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/geekshop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geekshop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/geekshop/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainapp/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/context_processors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainapp/management/commands/fill_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/management/commands/fill_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/templates/mainapp/products_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/templates/mainapp/products_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordersapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requared.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requared.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordersapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordersapp/templates/ordersapp/includes/inc_order_summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/templates/ordersapp/includes/inc_order_summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordersapp/templates/ordersapp/order_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/templates/ordersapp/order_form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +99,7 @@
       <workItem from="1643453179229" duration="313000" />
       <workItem from="1643626281655" duration="13782000" />
       <workItem from="1643713625268" duration="5032000" />
-      <workItem from="1643798024559" duration="128000" />
+      <workItem from="1643798024559" duration="14013000" />
     </task>
     <servers />
   </component>
