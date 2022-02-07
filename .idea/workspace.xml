@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="851789cd-8b20-407c-a81f-6573ad9636ce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ordersapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordersapp/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

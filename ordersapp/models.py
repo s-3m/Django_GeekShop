@@ -5,7 +5,7 @@ from mainapp.models import Product
 from basketapp.models import Basket
 from django.dispatch import receiver
 from django.db.models.signals import pre_save, pre_delete
-
+from django.db.models import F
 
 
 # Create your models here.
@@ -94,9 +94,9 @@ class OrderItem(models.Model):
 def product_quantity_update_save(sender, update_fields, instance, **kwargs):
     if update_fields is 'quantity' or 'product':
         if instance.pk:
-            instance.product.quantity -= instance.quantity - sender.objects.get(pk=instance.pk).quantity
+            instance.product.quantity = F('quantity') - instance.quantity - sender.objects.get(pk=instance.pk).quantity
         else:
-            instance.product.quantity -= instance.quantity
+            instance.product.quantity = F('quantity') - instance.quantity
         instance.product.save()
 
 
