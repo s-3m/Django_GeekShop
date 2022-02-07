@@ -7,6 +7,7 @@ from django.dispatch import receiver
 from django.db.models.signals import pre_save, pre_delete
 
 
+
 # Create your models here.
 
 class Order(models.Model):
@@ -92,6 +93,7 @@ class OrderItem(models.Model):
 @receiver(pre_save, sender=OrderItem)
 def product_quantity_update_save(sender, update_fields, instance, **kwargs):
     if update_fields is 'quantity' or 'product':
+        import pdb; pdb.set_trace()
         if instance.pk:
             instance.product.quantity -= instance.quantity - sender.objects.get(pk=instance.pk).quantity
         else:
