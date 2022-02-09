@@ -735,7 +735,9 @@ td:first-child {
 }
 
 .location {
-	padding: 0px 97px;
+	display: flex;
+	justify-content: space-between;
+	padding: 0px 80px;
 }
 .location-1 {
 	height: 368px;
@@ -1108,4 +1110,16 @@ td:first-child {
 .paginator {
 	text-align: center;
 	margin-bottom: 20px;
+}
+
+.products_list {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	padding: 25px 25px;
+}
+
+.product_record {
+	width: 30%;
+	text-align: center;
 }
