@@ -1,3 +1,5 @@
+import pdb
+
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.urls import reverse
 
@@ -6,6 +8,7 @@ from mainapp.models import Product
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from django.http import JsonResponse
+from django.db.models import F
 
 
 
@@ -19,18 +22,23 @@ def basket(request):
 
 @login_required
 def basket_add(request, pk):
-
     if 'login' in request.META.get('HTTP_REFERER'):
         return HttpResponseRedirect(reverse('products:product', args=[pk]))
     product = get_object_or_404(Product, pk=pk)
 
-    basket = Basket.objects.filter(user=request.user, product=product).select_related().first()
+    basket = Basket.objects.filter(user=request.user, product=product).first()
 
-    if not basket:
+    if basket:
+        # basket.update(quantity=F('quantity') + 1)
+        print('if')
+        basket.quantity = F('quantity') + 1
+        basket.save()
+    else:
+        print('else')
         basket = Basket(user=request.user, product=product)
+        basket.quantity += 1
+        basket.save()
 
-    basket.quantity += 1
-    basket.save()
 
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 

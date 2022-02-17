@@ -2,15 +2,17 @@
 {% load static %}
 
 {% block content %}
-  <div class="products_list">
+    <div class="div_new_prod">
+        {% if category != 0 %}
+            <button class="new_product">
+              <a href={% url 'admin:product_create' object_list.0.category.pk %}>
+                новый продукт
+              </a>
+            </button>
+        {% endif %}
+    </div>
 
-  {% if category != 0 %}
-    <button class="new_product">
-      <a href={% url 'admin:product_create' object_list.0.category.pk %}>
-        новый продукт
-      </a>
-    </button>
-  {% endif %}
+  <div class="products_list">
 
     {% for object in product_list %}
       <div class="product_record">
