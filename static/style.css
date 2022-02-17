@@ -26,7 +26,7 @@ html, body {
 	height: 800px;
 	background-image: url(img/slider.jpg); 
 	padding-left: 98px;
-	padding-right: 211px;
+	padding-right: 60px;
 	position: relative;
 }
 
@@ -41,7 +41,7 @@ html, body {
 
 .menu {
 	list-style-type: none;
-	margin-top: 15px;
+	margin-top: 30px;
 	float: right;
 }
 .menu li {
@@ -83,7 +83,7 @@ html, body {
 	top: 63px;
 	left: 1176px;
 }
-.menu .basket {
+.basket {
 	display: block;
 	width: 23px;
 	height: 23px;
@@ -91,7 +91,7 @@ html, body {
 	background-repeat: no-repeat;
 	margin-left: 10px;
 	padding-right: 0;
-	/*position: absolute;*/
+	position: absolute;
 	top: 63px;
 	left: 1230px;
 }
@@ -106,7 +106,7 @@ html, body {
 .li_basket_count {
 	padding-left: 1px;
 	color: #8c8c8c;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: 700;
 	text-align: right;
 	text-transform: uppercase;
@@ -169,6 +169,7 @@ html, body {
 	line-height: 13px;
 	letter-spacing: 1px;
 }
+
 
 .big {
 	color:  #212121;
@@ -371,7 +372,7 @@ html, body {
 	padding-right: 83px;
 }
 .title {
-	height: 152px;
+	height: 80px;
 	margin-right: 15px;
 }
 .title h2 {
@@ -1115,11 +1116,58 @@ td:first-child {
 .products_list {
 	display: flex;
 	width: 100%;
-	justify-content: center;
+	justify-content: space-between;
 	padding: 25px 25px;
+	flex-wrap: wrap;
 }
 
 .product_record {
 	width: 30%;
 	text-align: center;
+}
+
+.header {
+	display: flex;
+	width: 1208px;
+	justify-content: space-between;
+}
+
+.header li {
+	list-style-type: none;
+}
+
+.header_elem_without_logo {
+	display: flex;
+	width: 70%;
+	justify-content: space-between;
+}
+
+.header_basket {
+	display: flex;
+	width: 40%;
+	justify-content: space-between;
+	position: relative;
+}
+.header_basket li {
+	margin-top: 30px;
+	text-decoration: none;
+}
+
+.li_basket_count:before {
+	content: '';
+	display: block;
+	background-size: 50%;
+	background-image: url('img/shopping-cart.png');
+	background-repeat: no-repeat;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	top: 10px;
+	left: 160px;
+	text-decoration: none;
+}
+
+.li_basket_count a {
+	text-decoration: none;
+	color: #8c8c8c;
 }
