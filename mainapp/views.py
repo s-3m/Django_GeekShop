@@ -34,7 +34,8 @@ def get_same_products(hot_product):
 
 def index(request):
     return render(request, 'mainapp/index.html', context={'main_menu_links': main_menu_links,
-                                                          'products': all_prod()})
+                                                          'products': all_prod(),
+                                                          'title': 'главная'})
 
 
 def products(request, pk=None, page=1):

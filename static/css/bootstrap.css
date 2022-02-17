@@ -38,7 +38,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 html {
@@ -575,7 +575,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    max-width: 1900px;
   }
 }
 
@@ -3146,7 +3146,13 @@ input[type="button"].btn-block {
 }
 
 .dropdown-menu.show {
+  width: 250px;
   display: block;
+}
+
+ul.dropdown-menu.show a {
+  display: inline-block;
+  padding: 8px 20px 6px 8px;
 }
 
 .dropdown-header {
